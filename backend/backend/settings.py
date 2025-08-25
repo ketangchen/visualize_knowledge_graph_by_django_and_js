@@ -4,7 +4,9 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-your-secret-key-here'  # 实际项目中使用安全的密钥
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-your-secret-key-here')  # 生产环境需通过环境变量设置
+
+#SECRET_KEY = 'django-insecure-your-secret-key-here'  # 实际项目中使用安全的密钥
 
 DEBUG = True
 
